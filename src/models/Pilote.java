@@ -55,6 +55,7 @@ public class Pilote {
         Pneu retirer = null;
 
         for (int i = 0; i < pneusEnReserve.length; i++) {
+            //MR Il faut aussi vérifier si pneusEnReserve[i] n'est pas null avant de comparer les types
             if (pneusEnReserve[i].getType() == type) {
                 retirer = pneusEnReserve[i];
                 pneusEnReserve[i] = null;
@@ -93,6 +94,7 @@ public class Pilote {
     }
 
     public Pneu[] getPneusEnReserveSansTrous() {
+        //MR Il faut créer un tableau de la taille des pneus présents en réserve (getNombrePneusEnReserve())
         Pneu[] listeSansTrous = new Pneu[NOMBRE_PNEUS_EN_RESERVE];
         int j = 0;
 
@@ -118,6 +120,7 @@ public class Pilote {
 
         }
 
+        //MR Il faut vérifier si getNombrePneusEnReserve() n'est pas 0 pour éviter la division par zéro
         if (pression != 0) {
             resultat = (pression / getNombrePneusEnReserve());
         }
@@ -148,6 +151,8 @@ public class Pilote {
         int j = 0;
         int k = 0;
 
+        //MR Cette boucle ne sert à rien car elle est utiliser pour uniquement compter le nombre de pneus sans trous
+        //MR Il aurait fallu créer juste un compteur et pas créer le tableau pneusSansTrous
         for (int i = 0; i < pneusSansTrous.length; i++) {
             if (pneus[i] != null) {
                 pneusSansTrous[j++] = pneus[i];
